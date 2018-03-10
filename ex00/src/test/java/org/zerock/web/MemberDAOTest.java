@@ -6,7 +6,6 @@ import org.junit.*;
 import org.junit.runner.*;
 import org.springframework.test.context.*;
 import org.springframework.test.context.junit4.*;
-import org.zerock.domain.*;
 import org.zerock.persistence.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -20,7 +19,7 @@ public class MemberDAOTest {
 		System.out.println(dao.getTime());
 	}
 	
-	@Test
+	/*@Test
 	public void testInsertMember() throws Exception {
 		MemberVO vo = new MemberVO();
 		vo.setUserid("user000");
@@ -29,5 +28,16 @@ public class MemberDAOTest {
 		vo.setEmail("user000@aaa.com");
 		
 		dao.insertMember(vo);
+	}*/
+	
+	@Test
+	public void testReadMember() throws Exception {
+		System.out.println(dao.readMember("user00"));
 	}
+	
+	@Test
+	public void testReadWithPW() throws Exception {
+		System.out.println(dao.readWithPW("user000", "user000"));
+	}
+	
 }
