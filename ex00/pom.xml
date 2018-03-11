@@ -153,13 +153,6 @@
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-
-		<!-- log4 -->
-		<dependency>
-			<groupId>org.bgee.log4jdbc-log4j2</groupId>
-			<artifactId>log4jdbc-log4j2-jdbc4</artifactId>
-			<version>1.16</version>
-		</dependency>
 		
 		<!-- JSON 데이터 처리를 위해서 jackson-databind 추가(p116) -->
 		<dependency>
