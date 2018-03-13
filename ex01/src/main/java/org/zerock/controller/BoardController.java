@@ -6,6 +6,7 @@ import org.slf4j.*;
 import org.springframework.stereotype.*;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.*;
 import org.zerock.domain.*;
 import org.zerock.service.*;
 
@@ -23,13 +24,14 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/register", method=RequestMethod.POST)
-	public String registerPOST(BoardVO board, Model model) throws Exception {
+	public String registerPOST(BoardVO board, RedirectAttributes rttr) throws Exception {
 		logger.info("register post.............");
 		logger.info(board.toString());
 		
 		service.regist(board);
 		
-		model.addAttribute("result", "success");
+//		model.addAttribute("result", "success");
+		rttr.addFlashAttribute("msg", "SUCCESS");		// redirect 시점에 한번만 사용되는 데이터를 전송할 수 있는 메소드
 		
 //		return "/board/success";
 		return "redirect:/board/listAll";
