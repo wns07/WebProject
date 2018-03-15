@@ -40,13 +40,30 @@ public class BoardController {
 	@RequestMapping(value="/listAll", method=RequestMethod.GET)
 	public void listAll(Model model) throws Exception {
 		logger.info("show all list......................");
+		System.out.println("listAll 읽기");
 		
 		model.addAttribute("list", service.listAll());
 	}
 	
 	@RequestMapping(value="/read", method=RequestMethod.GET)
 	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
+		System.out.println("read Controller");
 		model.addAttribute(service.read(bno));
+	}
+	
+	@RequestMapping(value="/remove", method=RequestMethod.POST)
+	public String remove(@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception {
+		System.out.println("삭제전 Controller");
+		service.remove(bno);
+		System.out.println("삭제후 Controller");
+		
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		return "redirect:/board/listAll";
+	}
+	
+	@RequestMapping(value="/modify", method=RequestMethod.GET)
+	public void modifyGET(int bno, Model model) throws Exception {
+		System.out.println("수정 Controller");
 	}
 	
 }

@@ -3,30 +3,7 @@
 
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 
-<script>
-	$(document).ready(function() {
-		var formObj = $("form[role='form']");
-		
-		console.log(formObj);
-		
-		$(".btn-warning").on("click", function() {
-			formObj.attr("action", "/board/modify");
-			formObj.attr("method", "get");
-			formObj.submit();
-		});
-		
-		$(".btn-danger").on("click", function() {
-			formObj.attr("action", "/board/remove");
-			formObj.submit();
-		});
-		
-		$(".btn-primary").on("click", function() {
-			self.location = "/board/listAll";
-		});
-	});
-</script>
-
-<form>
+<form id="test" action="">
 	<input type="hidden" name="bno" value="${boardVO.bno }">
 </form>
 <div class="box-body">
@@ -46,9 +23,43 @@
 <!-- /.box-body -->
 
 <div class="box-footer">
-	<button type="submit" class="btn btn-warning">	Modify	</button>
+	<button type="button" class="btn btn-warning">	Modify	</button>
 	<button type="submit" class="btn btn-danger">	REMOVE	</button>
 	<button type="submit" class="btn btn-primary">	LIST ALL</button>
 </div>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
+
+<script>
+	$(document).ready(function() {
+		var formObj = $("form[role='form']");
+		
+		console.log(formObj);
+		
+		$(".box-footer").on("click", ".btn-warning", function(){
+			console.log("수정클릭!");
+			
+			$("#test").attr('action', "/board/modify");
+			$("#test").attr('method', "get");
+			$("#test").submit();
+					
+		});
+		
+		//$(".btn-warning").on("click", function() {
+		//	formObj.attr("action", "/board/modify");
+		//	formObj.attr("method", "get");
+		//	console.log("수정클릭!");
+		//	formObj.submit();
+		//});
+		
+		$(".btn-danger").on("click", function() {
+			console.log("삭제클릭!");
+			formObj.attr("action", "/board/remove");
+			formObj.submit();
+		});
+		
+		$(".btn-primary").on("click", function() {
+			self.location = "/board/listAll";
+		});
+	});
+</script>
