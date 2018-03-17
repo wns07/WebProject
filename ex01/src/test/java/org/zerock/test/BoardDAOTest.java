@@ -1,5 +1,7 @@
 package org.zerock.test;
 
+import java.util.*;
+
 import javax.inject.*;
 
 import org.junit.*;
@@ -48,4 +50,26 @@ public class BoardDAOTest {
 		dao.delete(1);
 	}
 	
+	@Test
+	public void testListPage() throws Exception {		// 3페이지 출력
+		int page = 3;
+		List<BoardVO> list = dao.listPage(page);
+		
+		for(BoardVO boardVO : list) {
+			logger.info(boardVO.getBno() + " : " + boardVO.getTitle());
+		}
+	}
+	
+	@Test
+	public void testListCriteria() throws Exception {
+		Criteria cri = new Criteria();
+		cri.setPage(2);
+		cri.setPerPageNum(20);
+		
+		List<BoardVO> list = dao.listCriteria(cri);
+		
+		for(BoardVO boardVO : list) {
+			logger.info(boardVO.getBno() + " : " + boardVO.getTitle());
+		}
+	}
 }
