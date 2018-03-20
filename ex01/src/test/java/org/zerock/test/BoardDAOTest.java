@@ -19,7 +19,7 @@ public class BoardDAOTest {
 	
 	@Inject
 	private BoardDAO dao;
-	
+	/*
 	// @Test 순서대로 테스트 진행
 	@Test
 	public void testCreate() throws Exception {
@@ -59,7 +59,7 @@ public class BoardDAOTest {
 			logger.info(boardVO.getBno() + " : " + boardVO.getTitle());
 		}
 	}
-	
+	*/
 	@Test
 	public void testListCriteria() throws Exception {
 		Criteria cri = new Criteria();

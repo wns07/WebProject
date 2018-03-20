@@ -23,7 +23,7 @@ public class Criteria {
 	}
 
 	public int getPerPageNum() {
-		return perPageNum;
+		return this.perPageNum;
 	}
 
 	public void setPerPageNum(int perPageNum) {

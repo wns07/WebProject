@@ -71,4 +71,12 @@ public class BoardController {
 		
 		return "redirect:/board/listAll";
 	}
+
+	@RequestMapping(value="/listCri", method=RequestMethod.GET)
+	public void listAll(Criteria cri, Model model) throws Exception {
+		logger.info("show list Page with Criteria......................");
+		
+		model.addAttribute("list", service.listCriteria(cri));
+	}
+	
 }
