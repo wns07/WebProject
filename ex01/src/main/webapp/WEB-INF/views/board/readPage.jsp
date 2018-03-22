@@ -16,7 +16,8 @@
 		});
 		
 		$(".btn-danger").on("click", function() {
-			formObj.attr("action", "/board/remove");
+			formObj.attr("method", "post");
+			formObj.attr("action", "/board/removePage");
 			formObj.submit();
 		});
 		
